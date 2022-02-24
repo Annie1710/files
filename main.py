@@ -6,13 +6,12 @@ import os
 import shutil
 from zipfile import ZipFile
 
+cache_path = os.getcwd() + "\\" + "cache"
 
 def clean_cache():
-    cwd = os.getcwd()
-    print(cwd)
-    if os.path.exists('cache'):
-        shutil.rmtree("cache")
-    os.mkdir('cache')
+    if os.path.exists(cache_path):
+        shutil.rmtree(cache_path)
+    os.mkdir(cache_path)
 
 
 def cache_zip(zip_file_path, cache_dir_path):  # (source, target)
@@ -21,9 +20,7 @@ def cache_zip(zip_file_path, cache_dir_path):  # (source, target)
 
 
 def cached_files():
-    cwd = os.getcwd()
-    ab_path = os.path.abspath(cwd)
-    path = os.path.join(ab_path, "cache")
+    path = cache_path
     dir_list = []
     for file in os.listdir(path):
         dir_list = dir_list + [os.path.join(path, file)]
