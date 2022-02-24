@@ -6,7 +6,7 @@ import os
 import shutil
 from zipfile import ZipFile
 
-cache_path = os.getcwd() + "\\" + "cache"
+cache_path = os.getcwd() + "\\" + "files"  + "\\" + "cache"  
 
 def clean_cache():
     if os.path.exists(cache_path):
